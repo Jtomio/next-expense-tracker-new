@@ -1,4 +1,4 @@
-@import '@/styles/variables.scss';
+@import '../../../styles/variables.scss';
 
 .no-card {
   border: 1px solid rgba($income, 0.6);
@@ -12,5 +12,13 @@
     color: rgba($income, 0.6);
     width: 6.2rem;
     height: 6.2rem;
+  }
+
+  &:hover {
+    border: 1px solid rgba($income, 0.8);
+
+    svg {
+      color: rgba($income, 0.8);
+    }
   }
 }

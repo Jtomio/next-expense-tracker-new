@@ -1,18 +1,29 @@
 import Image from 'next/image'
-import React from 'react'
-import ImageUser from '../../../public/imgUser.png'
 import styles from './Header.module.scss'
+import HeaderMenu from './HeaderMenu'
+import useMenu from '../../hooks/useMenu'
+import AddSalary from './modais/AddSalary'
+import Avatar from '../../../public/avatar.png'
 
-export default function Header() {
+const Header = () => {
+  const [isVisible, toggleMenuHandler] = useMenu()
+
   return (
-    <section className={styles.header}>
-      <div className={styles.message}>
-        <h1>Olá.... senti saudades </h1>
-        <h2>Sua carteira esta esperando por você</h2>
-      </div>
-      <div className={styles.avatar}>
-        <Image src={ImageUser} alt="avatar" width={50} />
-      </div>
-    </section>
+    <>
+      <AddSalary />
+
+      <section className={styles.header}>
+        <div className={styles.message}>
+          <h1>Olá! Senti Saudades 😀</h1>
+          <h2>Sua carteira está esperando por você</h2>
+        </div>
+        <div className={styles.avatar}>
+          <Image src={Avatar} alt="avatar" onClick={toggleMenuHandler} />
+          {isVisible && <HeaderMenu toggleMenuHandler={toggleMenuHandler} />}
+        </div>
+      </section>
+    </>
   )
 }
+
+export default Header

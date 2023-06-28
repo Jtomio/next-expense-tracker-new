@@ -2,6 +2,11 @@ import React from 'react'
 import styles from './AllCards.module.scss'
 import CategoryCard from './CategoryCard'
 import NoCard from './NoCard'
+import AddAmount from './modais/AddAmount'
+import SubtractAmount from './modais/SubtractAmount'
+import TransferAmount from './modais/TransferAmount'
+import EditCategory from './modais/EditCategory'
+import AddCategory from './modais/AddCategory'
 
 const DUMMY_DATA = [
   { id: 1, title: 'essencial', amount: 1400, percentage: 10 },
@@ -15,9 +20,17 @@ export default function AllCards() {
   ))
 
   return (
-    <section className={styles.section}>
-      {cards}
-      <NoCard />
-    </section>
+    <>
+      <AddAmount />
+      <SubtractAmount />
+      <TransferAmount />
+      <EditCategory />
+      <AddCategory />
+
+      <section className={styles.section}>
+        {cards}
+        <NoCard />
+      </section>
+    </>
   )
 }
